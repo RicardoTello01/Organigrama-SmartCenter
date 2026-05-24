@@ -1,0 +1,1007 @@
+:root {
+  --bg-1: #031228;
+  --bg-2: #071a37;
+  --grid: rgba(74, 121, 182, 0.08);
+  --text-main: #eef6ff;
+  --text-soft: #99b5d7;
+  --chip: rgba(6, 44, 95, 0.82);
+  --accent-directivo: #1fd7ff;
+  --accent-gerencial: #4f94ff;
+  --accent-operativo: #8c8cff;
+  --tag-bg: rgba(15, 147, 221, 0.14);
+  --tag-border: rgba(59, 191, 255, 0.34);
+  --radius: 22px;
+  --card-width: 520px;
+  --card-min-height: 288px;
+  --side-width: 165px;
+  --child-gap: 48px;
+  --branch-line: rgba(91, 224, 255, 0.82);
+  --branch-soft: rgba(91, 224, 255, 0.18);
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+html {
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text-main);
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    radial-gradient(circle at top center, rgba(15, 117, 222, 0.22), transparent 28%),
+    linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  background-size: 44px 44px, 44px 44px, auto, auto;
+}
+
+.page-shell {
+  width: max-content;
+  min-width: calc(100vw - 24px);
+  margin: 0 auto;
+  padding: 112px 24px 44px;
+}
+
+.hero {
+  text-align: center;
+  padding: 4px 16px 18px;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--chip);
+  border: 1px solid rgba(52, 206, 255, 0.3);
+  color: #74ebff;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .95rem;
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(20, 186, 255, 0.08) inset;
+}
+
+.hero h1 {
+  margin: 26px 0 8px;
+  font-size: clamp(2.25rem, 4vw, 3.3rem);
+  line-height: 1.05;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1.22rem;
+}
+
+.hero-divider {
+  margin: 26px auto 18px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-divider span {
+  width: 72px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(69, 223, 255, 0.7), transparent);
+}
+.hero-divider i,
+.hero-divider b {
+  display: inline-block;
+  border-radius: 50%;
+}
+.hero-divider i {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-directivo);
+  box-shadow: 0 0 12px rgba(31, 215, 255, 0.8);
+}
+.hero-divider b {
+  width: 7px;
+  height: 7px;
+  background: var(--accent-gerencial);
+  box-shadow: 0 0 12px rgba(79, 148, 255, 0.75);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+  color: var(--text-soft);
+  font-size: .95rem;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.legend-item i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.legend-directivo i { background: var(--accent-directivo); box-shadow: 0 0 10px rgba(31,215,255,.8); }
+.legend-gerencial i { background: var(--accent-gerencial); box-shadow: 0 0 10px rgba(79,148,255,.8); }
+.legend-operativo i { background: var(--accent-operativo); box-shadow: 0 0 10px rgba(140,140,255,.8); }
+.legend-separator { color: rgba(167, 191, 220, 0.5); }
+.legend-note { font-style: italic; }
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 14px 24px;
+  background:
+    linear-gradient(180deg, rgba(3, 18, 40, 0.96), rgba(3, 18, 40, 0.88));
+  border-bottom: 1px solid rgba(91, 224, 255, 0.28);
+  box-shadow: 0 12px 28px rgba(0, 7, 20, 0.36);
+  backdrop-filter: blur(14px);
+}
+
+.toolbar input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 15px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(77, 146, 219, 0.24);
+  background: rgba(5, 22, 49, 0.82);
+  color: var(--text-main);
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(12, 72, 139, 0.15);
+}
+.toolbar input::placeholder { color: #82a5cf; }
+
+.toolbar button {
+  flex: 0 0 180px;
+  white-space: nowrap;
+}
+
+.toolbar button,
+.toggle-btn {
+  border: 1px solid rgba(79, 168, 255, 0.32);
+  background: linear-gradient(180deg, rgba(17, 89, 164, 0.95), rgba(10, 54, 109, 0.95));
+  color: var(--text-main);
+  border-radius: 14px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.toolbar button:hover,
+.toggle-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(89, 220, 255, 0.55);
+  box-shadow: 0 10px 24px rgba(4, 20, 50, 0.28), 0 0 18px rgba(58, 199, 255, 0.18);
+}
+
+.org-root {
+  overflow: visible;
+  padding: 12px 28px 80px;
+}
+.org-tree {
+  min-width: max-content;
+  display: flex;
+  justify-content: center;
+  padding: 0 48px 40px;
+}
+
+.node-wrapper {
+  --footprint: var(--card-width);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--footprint);
+  min-width: var(--card-width);
+  margin: 10px 0;
+  transition: width .55s cubic-bezier(.22,1,.36,1);
+}
+
+
+.profile-card {
+  width: var(--card-width);
+  min-height: var(--card-min-height);
+  display: grid;
+  grid-template-columns: var(--side-width) 1fr;
+  position: relative;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(24, 83, 153, 0.9), rgba(18, 42, 112, 0.96));
+  border: 1px solid rgba(62, 183, 244, 0.38);
+  box-shadow: 0 0 0 1px rgba(32, 198, 255, 0.18), 0 0 18px rgba(32, 198, 255, 0.14), 0 18px 48px rgba(1, 8, 22, 0.42);
+  overflow: hidden;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, filter .28s ease;
+}
+
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(48, 233, 255, 0.16), transparent 20%);
+  pointer-events: none;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px) scale(1.008);
+  border-color: rgba(90, 240, 255, 0.62);
+  box-shadow: 0 0 0 1px rgba(92, 238, 255, 0.3), 0 0 26px rgba(59, 205, 255, 0.22), 0 28px 64px rgba(1, 8, 22, 0.55);
+  filter: saturate(1.08);
+}
+
+.profile-card:hover .role-pill {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 18px rgba(69, 231, 255, 0.22);
+}
+
+.node-wrapper.has-children > .profile-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  width: 2px;
+  height: 34px;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top center;
+  opacity: 0;
+  background: linear-gradient(180deg, var(--branch-line), var(--branch-soft));
+  transition: transform .44s cubic-bezier(.22,1,.36,1), opacity .28s ease;
+}
+
+.node-wrapper.children-open > .profile-card::after {
+  transform: translateX(-50%) scaleY(1);
+  opacity: 1;
+}
+
+.card-accent {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent-directivo), rgba(31, 215, 255, 0.1));
+  opacity: .88;
+  transition: .28s ease;
+}
+
+.card-side {
+  position: relative;
+
+  padding: 18px 14px 18px;
+
+  border-right: 1px solid rgba(116, 176, 233, 0.14);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(29, 141, 192, 0.16),
+    rgba(29, 141, 192, 0.05)
+  );
+
+  overflow: hidden;
+}
+
+.photo-glow {
+  width: 128px;
+  height: 128px;
+  padding: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(69, 231, 255, 0.42), rgba(69, 231, 255, 0.08) 58%, transparent 72%);
+  box-shadow: 0 0 30px rgba(58, 199, 255, 0.24);
+  flex: 0 0 auto;
+}
+
+.node-photo {
+  width: 116px;
+  height: 116px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 50%;
+  background: #091224;
+  border: 2px solid rgba(103, 195, 255, 0.42);
+}
+
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 120px;
+  max-width: 150px;
+  min-height: 34px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(28, 169, 197, 0.18);
+  border: 1px solid rgba(77, 220, 242, 0.18);
+
+  color: #c6f6ff;
+
+  font-size: .66rem;
+  line-height: 1;
+
+  text-align: center;
+
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+
+  transition:
+    transform .24s ease,
+    box-shadow .24s ease,
+    background .24s ease;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-main {
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.node-name {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 0.7;
+  min-height: 0;
+  white-space: pre-line;
+}
+
+.node-role {
+  margin: 4px 0 0;
+  color: #52d8f2;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: .82rem;
+  font-weight: 800;
+  min-height: 0;
+}
+
+.card-description {
+  color: #b7d1ee;
+  max-height: 420px;
+  overflow: hidden;
+  transform-origin: top center;
+  transition: max-height .55s cubic-bezier(.22,.61,.36,1), opacity .42s ease, padding-top .42s ease, border-top-color .42s ease, transform .55s cubic-bezier(.22,.61,.36,1);
+  transform: scaleY(1);
+
+  border-top: 1px solid rgba(144, 190, 235, 0.14);
+
+  padding-top: 10px;
+
+  line-height: 1.5;
+
+  font-size: .86rem;
+
+  min-height: 0;
+
+  white-space: pre-line;
+
+  text-align: justify;
+
+  max-height: 220px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-right: 14px;
+}
+
+.card-description::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-description::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+}
+
+.card-description::-webkit-scrollbar-thumb {
+  background: rgba(95, 205, 255, 0.45);
+  border-radius: 999px;
+}
+
+.card-description::-webkit-scrollbar-thumb:hover {
+  background: rgba(95, 205, 255, 0.7);
+}
+
+.card-description.is-collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  border-top-color: transparent;
+  transform: scaleY(.96);
+}
+
+.description-toggle {
+  align-self: flex-start;
+
+  border: 1px solid rgba(79, 168, 255, 0.32);
+  background: linear-gradient(
+    180deg,
+    rgba(17, 89, 164, 0.95),
+    rgba(10, 54, 109, 0.95)
+  );
+
+  color: var(--text-main);
+
+  border-radius: 10px;
+
+  padding: 7px 11px;
+
+  cursor: pointer;
+
+  font-size: .72rem;
+  font-weight: 800;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+.description-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(89, 220, 255, 0.55);
+  box-shadow:
+    0 10px 24px rgba(4, 20, 50, 0.28),
+    0 0 18px rgba(58, 199, 255, 0.18);
+}
+
+.card-description::before {
+  content: "▣";
+  color: rgba(84, 197, 255, 0.76);
+  margin-right: 8px;
+}
+
+.asset-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-height: 30px;
+}
+.asset-tag {
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: #84dfff;
+  font-size: .73rem;
+  font-weight: 700;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.asset-tag.is-empty {
+  color: #8fa9c9;
+  border-style: dashed;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(144, 190, 235, 0.12);
+  color: #a8c6e9;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+  font-size: .77rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.meta-item span:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-icon {
+  color: #63bfff;
+  flex-shrink: 0;
+}
+
+.salary-item {
+  margin-top: 4px;
+  justify-content: flex-end;
+  color: #69e9b0;
+  font-weight: 800;
+}
+.salary-currency { color: #1fe58e; }
+.node-salary.is-hidden {
+  letter-spacing: .18em;
+  color: #74d8c0;
+  filter: blur(4px);
+  user-select: none;
+}
+.salary-toggle {
+  border: none;
+  background: transparent;
+  color: #91b7df;
+  cursor: pointer;
+  font-size: .96rem;
+  line-height: 1;
+  transition: transform .2s ease, color .2s ease;
+}
+.salary-toggle:hover {
+  transform: scale(1.12);
+  color: #d8efff;
+}
+
+.node-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+.toggle-btn {
+  padding: 10px 14px;
+  font-size: .78rem;
+}
+.toggle-btn:empty { display: none; }
+
+.profile-card.match {
+  border-color: rgba(114, 235, 255, 0.85);
+  box-shadow: 0 0 0 1px rgba(114, 235, 255, 0.4), 0 0 32px rgba(68, 216, 255, 0.32), 0 18px 50px rgba(1, 8, 22, 0.52);
+}
+
+.profile-card.level-directivo .card-accent { background: linear-gradient(180deg, var(--accent-directivo), rgba(31, 215, 255, 0.08)); }
+.profile-card.level-directivo .role-pill { background: rgba(27, 196, 224, 0.18); color: #8ef7ff; }
+.profile-card.level-gerencial .card-accent { background: linear-gradient(180deg, var(--accent-gerencial), rgba(79, 148, 255, 0.08)); }
+.profile-card.level-gerencial .role-pill { background: rgba(68, 126, 255, 0.16); color: #d7e6ff; }
+.profile-card.level-operativo .card-accent { background: linear-gradient(180deg, var(--accent-operativo), rgba(140, 140, 255, 0.08)); }
+.profile-card.level-operativo .role-pill { background: rgba(126, 123, 255, 0.16); color: #e6e0ff; }
+
+.children-container {
+  display: inline-flex;
+  margin-top: 0;
+  padding-top: 0;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: max-content;
+  min-width: 100%;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition:
+    max-height .58s cubic-bezier(.22,1,.36,1),
+    opacity .34s ease,
+    transform .46s cubic-bezier(.22,1,.36,1),
+    margin-top .46s cubic-bezier(.22,1,.36,1),
+    padding-top .46s cubic-bezier(.22,1,.36,1),
+    visibility 0s linear .58s;
+  will-change: width, max-width, max-height, opacity, transform;
+}
+.children-container.open {
+  margin-top: 44px;
+  padding-top: 38px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    max-height .58s cubic-bezier(.22,1,.36,1),
+    opacity .34s ease,
+    transform .46s cubic-bezier(.22,1,.36,1),
+    margin-top .46s cubic-bezier(.22,1,.36,1),
+    padding-top .46s cubic-bezier(.22,1,.36,1),
+    visibility 0s linear 0s;
+}
+.children-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 28px;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top center;
+  opacity: 0;
+  background: linear-gradient(180deg, var(--branch-line), var(--branch-soft));
+  transition: transform .44s cubic-bezier(.22,1,.36,1), opacity .24s ease;
+}
+.children-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 68px;
+  right: 68px;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: center center;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, var(--branch-line) 6%, var(--branch-line) 94%, transparent);
+  transition: transform .5s cubic-bezier(.22,1,.36,1) .08s, opacity .24s ease .08s;
+}
+.children-container.open::before {
+  transform: translateX(-50%) scaleY(1);
+  opacity: 1;
+}
+.children-container.open::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.node-wrapper.has-children > .children-container > .node-wrapper {
+  margin-top: 18px;
+}
+
+.node-wrapper.has-children > .children-container > .node-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 2px;
+  height: 18px;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top center;
+  opacity: 0;
+  background: linear-gradient(180deg, var(--branch-line), var(--branch-soft));
+  transition: transform .4s cubic-bezier(.22,1,.36,1) .12s, opacity .22s ease .12s;
+}
+.node-wrapper.has-children > .children-container.open > .node-wrapper::before {
+  transform: translateX(-50%) scaleY(1);
+  opacity: 1;
+}
+
+.node-wrapper.children-open > .children-container::before,
+.node-wrapper.children-open > .children-container::after,
+.node-wrapper.children-open > .children-container > .node-wrapper::before {
+  opacity: 1;
+}
+
+.node-wrapper.children-open > .children-container::before,
+.node-wrapper.children-open > .children-container > .node-wrapper::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.node-wrapper.children-open > .children-container::after {
+  transform: scaleX(1);
+}
+
+.hidden-by-search { display: none !important; }
+
+@media (max-width: 1500px) {
+  :root {
+    --card-width: 500px;
+    --card-min-height: 282px;
+  }
+  .children-container { gap: 36px; }
+}
+
+@media (max-width: 1100px) {
+  .page-shell { width: min(100vw - 18px, 1600px); }
+  .children-container {
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .node-wrapper {
+    width: min(var(--footprint), 100%);
+  }
+  .children-container::after {
+    display: none;
+  }
+  .profile-card {
+    width: min(680px, calc(100vw - 50px));
+    min-height: 244px;
+  }
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .toolbar button {
+    flex-basis: 132px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: .78rem;
+  }
+  .profile-card {
+    width: min(100%, calc(100vw - 26px));
+    grid-template-columns: 96px 1fr;
+    min-height: 0;
+  }
+  .card-side { padding: 14px 8px; }
+  .photo-glow {
+    width: 90px;
+    height: 90px;
+  }
+  .node-photo {
+    width: 78px;
+    height: 78px;
+  }
+  .role-pill {
+    width: 76px;
+    font-size: .58rem;
+  }
+  .card-main {
+    padding: 14px;
+  }
+  .node-name {
+    font-size: .95rem;
+  }
+  .node-role {
+    font-size: .72rem;
+  }
+  .card-meta {
+    grid-template-columns: 1fr;
+  }
+  .salary-item {
+    justify-self: start;
+  }
+
+  /* ── Mobile tree layout ───────────────────────────────────────────────────
+     Stack all children vertically. Cancel every JS-computed margin-top that
+     the offset system applies on desktop — it's reset to '' by applyOffsetNivel
+     when isMobileView() returns true, but !important here acts as a safety net
+     in case the JS hasn't run yet (e.g. on first paint).
+  ────────────────────────────────────────────────────────────────────────── */
+  .node-wrapper[class*="offset-nivel-"],
+  .node-wrapper[data-align-to] {
+    margin-top: 0 !important;
+  }
+
+  .children-container {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding-top: 24px;
+    margin-top: 28px;
+    width: 100%;
+  }
+
+  .node-wrapper {
+    width: 100% !important;
+    max-width: calc(100vw - 26px);
+    --footprint: 100%;
+  }
+
+  /* Hide branch connector lines — SVG overlay is hidden by JS on mobile */
+  .org-connector-overlay { display: none; }
+
+  /* Hide the decorative branch lines (pseudo-elements) on mobile */
+  .children-container::before,
+  .children-container::after,
+  .node-wrapper.has-children > .profile-card::after,
+  .node-wrapper.has-children > .children-container > .node-wrapper::before {
+    display: none;
+  }
+}
+
+
+@media (max-width: 1100px) {
+  html { overflow-x: auto; }
+  .page-shell { min-width: calc(100vw - 18px); }
+}
+
+.profile-card.level-1 .card-accent {
+  background: linear-gradient(180deg, #1fd7ff, rgba(31, 215, 255, 0.08));
+}
+
+.profile-card.level-1 .role-pill {
+  background: rgba(27, 196, 224, 0.22);
+  color: #8ef7ff;
+}
+
+.profile-card.level-2 .card-accent {
+  background: linear-gradient(180deg, #00b7ff, rgba(0, 183, 255, 0.08));
+}
+
+.profile-card.level-2 .role-pill {
+  background: rgba(0, 183, 255, 0.18);
+  color: #bff4ff;
+}
+
+.profile-card.level-3 .card-accent {
+  background: linear-gradient(180deg, #3d9bff, rgba(61, 155, 255, 0.08));
+}
+
+.profile-card.level-3 .role-pill {
+  background: rgba(61, 155, 255, 0.18);
+  color: #d7eaff;
+}
+
+.profile-card.level-4 .card-accent {
+  background: linear-gradient(180deg, #4f94ff, rgba(79, 148, 255, 0.08));
+}
+
+.profile-card.level-4 .role-pill {
+  background: rgba(79, 148, 255, 0.16);
+  color: #d7e6ff;
+}
+
+.profile-card.level-5 .card-accent {
+  background: linear-gradient(180deg, #6d83ff, rgba(109, 131, 255, 0.08));
+}
+
+.profile-card.level-5 .role-pill {
+  background: rgba(109, 131, 255, 0.16);
+  color: #e3e6ff;
+}
+
+
+
+/* ── Nodos con desplazamiento de nivel visual ─────────────────────────────
+   offset-nivel-1: el nodo reporta al mismo padre que el Director de Site
+   pero se muestra un escalón más abajo en la jerarquía visual.
+   El JS calcula el margin-top exacto midiendo la tarjeta del Director.
+   El SVG overlay (.org-connector-overlay) dibuja la línea de conexión.
+────────────────────────────────────────────────────────────────────────── */
+.node-wrapper.offset-nivel-1 {
+  margin-top: calc(var(--card-min-height) + 44px + 38px + 18px); /* fallback; JS overrides */
+}
+
+/* SVG overlay que dibuja todas las líneas de offset */
+.org-connector-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+/* Cards sit above the connector overlay */
+.profile-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* Corrección: evita que las tarjetas queden recortadas cuando un nodo con
+   desplazamiento visual aumenta la altura real de la rama ya desplegada. */
+.children-container.open {
+  overflow: visible;
+}
+
+
+/* ── Conectores limpios por SVG ───────────────────────────────────────────
+   Se desactivan las líneas CSS anteriores para evitar líneas dobles y cruces.
+   Todas las conexiones visibles se dibujan desde script.js en un solo overlay SVG.
+────────────────────────────────────────────────────────────────────────── */
+.node-wrapper.has-children > .profile-card::after,
+.children-container::before,
+.children-container::after,
+.node-wrapper.has-children > .children-container > .node-wrapper::before {
+  content: none !important;
+  display: none !important;
+}
+
+.org-root {
+  position: relative;
+}
+
+.org-connector-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+.org-tree,
+.node-wrapper,
+.profile-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Corrección final de conectores SVG ──────────────────────────────────
+   El overlay queda visible en el lienzo completo, pero las tarjetas quedan
+   por encima para que ninguna línea cruce visualmente el contenido.
+────────────────────────────────────────────────────────────────────────── */
+.org-root {
+  position: relative;
+  isolation: isolate;
+}
+
+.org-connector-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+
+.org-tree {
+  position: relative;
+  z-index: 1;
+}
+
+.node-wrapper,
+.profile-card {
+  position: relative;
+}
+
+.profile-card {
+  z-index: 3;
+}
+
+
+/* ── FIX DEFINITIVO: conectores SVG visibles y sin líneas dobles ───────── */
+.org-root {
+  position: relative !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+.org-connector-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+  z-index: 20 !important;
+}
+.org-connector-overlay path,
+.org-connector-overlay circle {
+  vector-effect: non-scaling-stroke;
+}
+.org-tree {
+  position: relative !important;
+  z-index: 10 !important;
+}
+.profile-card {
+  position: relative !important;
+  z-index: 30 !important;
+}
+.node-wrapper.has-children > .profile-card::after,
+.children-container::before,
+.children-container::after,
+.node-wrapper.has-children > .children-container > .node-wrapper::before {
+  content: none !important;
+  display: none !important;
+}
+.children-container.open {
+  overflow: visible !important;
+}
