@@ -97,7 +97,7 @@ const orgData = node({
 
                     • Liderar la estructura organizacional del site: Desarrollar equipos de alto desempeño, fortalecer el liderazgo interno y asegurar una cultura orientada a resultados.`,
       activos: ['Laptop', 'Celular'],
-      foto: 'ASSETS/IMAGES/director de site.jpg',
+      foto: 'ASSETS/IMAGES/Director de site.jpg',
       correo: 'erick.hernandez@smart-center.com.mx',
       telefono: '5512345678',
       expanded: false,
@@ -222,14 +222,12 @@ const orgData = node({
         node({
           id: 'gerente-unicef',
           offsetNivel: 1,
-          alignTo: 'subdireccion-finanzas',
           nombre: 'Ricardo Hernandez Piña',
           puesto: 'Gerente Unicef',
           activos: ['Laptop', 'Celular'],
           descripcion: `• Asegurar la rentabilidad y control del negocio de la campaña asignada: Optimizar el uso de la base de datos y garantizar la rentabilidad y el flujo adecuado de ingresos.
                         • Gestionar la operación y al equipo: Retroalimentar al equipo, controlar ausentismo y rotación, e implementar estrategias y ajustes oportunos para alcanzar las metas establecidas.
                         • Analizar información y desempeño: Generar informes, analizar indicadores y campañas, y proponer soluciones basadas en datos para mejorar resultados.`,
-          foto: 'ASSETS/IMAGES/GERENTE UNICEF.jpg',
           correo: 'rhernandez@smart-center.com.mx',
           telefono: '5561916662',
           area: 'Unicef',
@@ -245,7 +243,7 @@ const orgData = node({
                         • Gestionar la operación y al equipo: Retroalimentar al equipo, controlar ausentismo y rotación, e implementar estrategias y ajustes oportunos para alcanzar las metas establecidas.
                         • Analizar información y desempeño: Generar informes, analizar indicadores y campañas, y proponer soluciones basadas en datos para mejorar resultados.`,
           activos: ['Laptop', 'Celular'],
-          foto: 'ASSETS/IMAGES/GERENTE welcome.jpg',
+          foto: 'ASSETS/IMAGES/GERENTE WELCOME.jpg',
           correo: 'mgarcia@smart-center.com.mx',
           area: 'Welcome',
           hijos: [node({ id: 'ops-unicef', offsetNivel: 2, nombre: 'Pendiente de definir', puesto: 'Operaciones', area: 'Operativo' })]
@@ -962,7 +960,7 @@ const orgData = node({
                             •	Atención a los empleados con temas relacionados a pagos`,
           correo: 'auxiliar.nominas@smart-center.com.mx',
           telefono: '5578336816',
-          foto: 'ASSETS/IMAGES/coordinador nomina.jpg',
+          foto: 'ASSETS/IMAGES/Coordinador Nomina.jpg',
           hijos: [
             node({ 
               id: 'aux-nomina-01', 
