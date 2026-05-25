@@ -97,7 +97,7 @@ const orgData = node({
 
                     • Liderar la estructura organizacional del site: Desarrollar equipos de alto desempeño, fortalecer el liderazgo interno y asegurar una cultura orientada a resultados.`,
       activos: ['Laptop', 'Celular'],
-      foto: 'ASSETS/IMAGES/Gerente BBVA.jpg',
+      foto: 'ASSETS/IMAGES/Director de Site.jpg',
       correo: 'erick.hernandez@smart-center.com.mx',
       telefono: '5512345678',
       expanded: false,
