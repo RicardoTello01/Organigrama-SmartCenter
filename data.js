@@ -74,7 +74,7 @@ function node({
 
 const orgData = node({
   id: 'consejo-administracion',
-  nombre: `Alejandro Gabriel de Souza Coutiño Avila
+  nombre: `Alejandro Gabriel de Souza Coutiño
 
 		Ricardo Llanos
 
