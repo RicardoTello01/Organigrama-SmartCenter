@@ -317,7 +317,7 @@ const orgData = node({
                   id: 'analista-rrll', 
                   offsetNivel: 1,
                   nombre: 'MAYRA GISELA LARA REYES', 
-                  puesto: 'Analista RRLL', 
+                  puesto: 'Analista rrll', 
                   area: 'RRLL',
 			            activos: ['Sin activos'],
                   descripcion: `• Gestión y control de archivos: Organizar, actualizar y resguardar documentación física y digital del área jurídica.
@@ -336,7 +336,7 @@ const orgData = node({
 			            descripcion: '',
 			            correo: '',
 			            telefono: '',
-                  foto: 'ASSETS/IMAGES/becario rrll.jpg'
+                  foto: 'ASSETS/IMAGES/Becario RRLL.jpg'
                 })
               ]
             }),
@@ -379,7 +379,7 @@ const orgData = node({
                   descripcion: '',
                   correo: 'sxsanchez@smart-center.com.mx',
                   telefono: '5569661333',
-                  foto: 'ASSETS/IMAGES/comunicacion interna.jpg',
+                  foto: 'ASSETS/IMAGES/Comunicacion Interna.jpg',
                 }),
                 node({
                   id: 'Analista-desarrollo-org',
@@ -441,7 +441,7 @@ const orgData = node({
                                 •  Administración y control médico: Gestionar expedientes clínicos e insumos médicos, garantizando control de inventarios, confidencialidad de la información y cumplimiento de normativas sanitarias.`,
                   correo: 'enfermeria@smart-center.com.mx',
                   telefono: '5511489689',
-                  foto: 'ASSETS/IMAGES/enfermera.jpg',
+                  foto: 'ASSETS/IMAGES/Enfermera.jpg',
                 }),
             node({ 
                   id: 'gestor-usuarios',
@@ -484,7 +484,7 @@ const orgData = node({
                             • Control operativo y registro: Gestionar bitácoras, recepción de paquetería y revisión de accesos conforme a procedimientos.`,
               correo: 'jlazaro@smart-center.com.mx',
               telefono: '5620977892',
-		          foto: 'ASSETS/IMAGES/seguridad fisica.jpg',
+		          foto: 'ASSETS/IMAGES/Seguridad Fisica.jpg',
               hijos: [node({ id: 'guardia', nombre: 'Pendiente de definir', puesto: 'Guardia', area: 'Seguridad',
               
                })]
@@ -508,7 +508,7 @@ const orgData = node({
               offsetNivel: 3,
               nombre: 'Juan Pablo Moreno Alva',
               puesto: 'Facilities',
-              foto: 'ASSETS/IMAGES/FACILITIES.jpg',
+              foto: 'ASSETS/IMAGES/Facilities.jpg',
               area: 'Administración',
 		          activos: ['Sin activos'],
               descripcion: `• Gestión y supervisión del servicio de limpieza: Planificar, coordinar y supervisar las actividades y al personal, asegurando calidad, cobertura y cumplimiento de estándares.
@@ -527,7 +527,7 @@ const orgData = node({
               nombre: 'Karla Isela Alcaráz Martinez', 
               puesto: 'Monitorista CCTV', 
               area: 'Administración', 
-              foto: 'ASSETS/IMAGES/MONITORISTA CCTV.jpg',
+              foto: 'ASSETS/IMAGES/Monitorista CCTV.jpg',
               descripcion: `•	Gestionar el cumplimiento normativo y trámites gubernamentales, elaborando, ingresando y dando seguimiento a permisos, licencias, dictámenes y requerimientos ante autoridades, asegurando su conclusión en tiempo y forma.
                             •	Integrar, administrar y resguardar la documentación oficial, manteniendo actualizadas las carpetas físicas y digitales (programas internos, evidencias, registros), garantizando su disponibilidad, trazabilidad y cumplimiento regulatorio.
                             •	Diseñar, implementar y actualizar el Programa Interno de Protección Civil, alineado a la normatividad vigente y a los riesgos específicos de la organización.`,
@@ -547,7 +547,7 @@ const orgData = node({
                             • Control y soporte operativo: Actualizar estatus en sistemas, resguardar documentación y apoyar en la atención de incidencias del proceso de compra.`, 
               correo: 'comprasoda1@smart-center.com.mx',
               telefono: '5534440548',
-              foto: 'ASSETS/IMAGES/validador compras.jpg', })
+              foto: 'ASSETS/IMAGES/Validador compras.jpg', })
           ]
         }),
         node({
@@ -658,7 +658,6 @@ const orgData = node({
               puesto: 'Analista de seguridad de la información',
               area: 'Ciberseguridad',
               activos: ['Laptop', 'Celular'],
-              foto: '',
               descripcion: '',
               correo: '',
               telefono: ''
@@ -688,7 +687,7 @@ const orgData = node({
                             • Evaluación y mejora continua: Medir la efectividad de las iniciativas, generar reportes y colaborar con otras áreas para optimizar estrategias de prevención.`,
               correo: 'jjflores@smart-center.com.mx',
               telefono: '5585633705',
-              foto: 'ASSETS/IMAGES/analista de seguridad.jpg',
+              foto: 'ASSETS/IMAGES/Analista de seguridad.jpg',
             }),
             node({ 
               id: 'analista-gestion',
@@ -702,7 +701,7 @@ const orgData = node({
                             •	Ejecutar procesos de escalamiento de incidentes conforme a matrices de criticidad y protocolos establecidos.`,
               correo: 'caescobedo@smart-center.com.mx',
               telefono: '5638085146',
-              foto: 'ASSETS/IMAGES/analista de gestion.jpg',
+              foto: 'ASSETS/IMAGES/Analista de gestion.jpg',
             }),
             node({ 
               id: 'auditor-seguridad',
@@ -921,7 +920,7 @@ const orgData = node({
                         • Liderar y supervisar al equipo contable: Coordinar y dar seguimiento al trabajo equipo contable, asegurando calidad, cumplimiento y mejora continua.`,
           correo: 'rflores@smart-center.com.mx',
           telefono: '5543555317',
-          foto: 'ASSETS/IMAGES/contador a.jpg',
+          foto: 'ASSETS/IMAGES/Contador A.jpg',
           hijos: [
             node({ 
               id: 'contador-b', 
@@ -933,7 +932,7 @@ const orgData = node({
                            •	Supervisar la operación del equipo contable: Dar seguimiento a las actividades del auxiliar contable, analista contable y de activos fijos, asegurando cumplimiento, calidad y continuidad en la operación.`,
               correo: 'glopez@smart-center.com.mx',
               telefono: '5566023543',
-              foto: 'ASSETS/IMAGES/contador b.jpg',
+              foto: 'ASSETS/IMAGES/Contador B.jpg',
 		          hijos: [
 			          node({
 				          id: 'analista-contabilidad',
